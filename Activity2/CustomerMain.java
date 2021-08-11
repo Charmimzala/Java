@@ -1,39 +1,49 @@
-package Assignment;
+package Activity2;
+
 import java.util.Scanner;
 
 class Customer{
 	private String name;
 	private String address;
 	private String mobile;
-	Customer(String name,String address,String mobile){
-		this.name=name;
-		this.address=address;
-		this.mobile=mobile;
+	
+	public String getName() {
+		return name;
 	}
-	public void getinfo() {
-		System.out.println("Name : "+this.name);
-		System.out.println("Address : "+this.address);
-		System.out.println("Mobile : "+this.mobile);
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public void displayCustomerDetails() {
+		System.out.println("Name: "+getName());
+		System.out.println("Address: "+getAddress());
+		System.out.println("Mobile: "+getMobile());
 	}
 }
-class CustomerMain{
-	CustomerMain(){
-		System.out.println("Enter name , address , mobile with comma seperate");
-		Scanner sc = new Scanner(System.in);
-		String info = sc.nextLine();
-		String[] data = info.split(",");
-		String name=data[0];
-		String address=data[1];
-		String mobile=data[2];
-		
-		Customer c=new Customer(name,address,mobile);
-		c.getinfo();
-	}
-}
+public class CustomerMain {
 
-public class Question4 {
-	public static void main(String[] s) {
-		new CustomerMain();
+	public static void main(String[] args) {
+		Customer c=new Customer();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the details:");
+		String details=sc.next();
+		String str[]=details.split(",");
+		c.setName(str[0]);
+		c.setAddress(str[1]);
+		c.setMobile(str[2]);
+		c.displayCustomerDetails();
+		sc.close();
 	}
 
 }
